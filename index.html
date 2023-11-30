@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #countdown-container {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+    <script>
+        // 設定目標日期和時間（UTC+8）
+        const targetDate = new Date("2023-11-30T19:50:00+08:00").getTime();
+
+        // 更新倒數計時器的函數
+        function updateCountdown() {
+            const currentDate = new Date().getTime();
+            const timeDifference = targetDate - currentDate;
+
+            // 計算時間差（天、時、分、秒）
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // 更新顯示
+            const countdownText = `${days} 天 ${hours} 時 ${minutes} 分 ${seconds} 秒`;
+            document.getElementById('countdown').innerHTML = `距離 2023/11/30 19:50 還有 ${countdownText}`;
+        }
+
+        // 設定定時器，每秒更新一次
+        setInterval(updateCountdown, 1000);
+    </script>
+</head>
+<body>
+    <div id="countdown-container">
+        <div id="countdown"></div>
+    </div>
+</body>
+</html>

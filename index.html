@@ -1,16 +1,84 @@
 <!DOCTYPE html>
+<!-- saved from url=(0041)https://arcxingye.github.io/rr/index.html -->
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        #countdown-container {
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style type="text/css">
+        p {
+            margin: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(https://www.loliapi.com/acg/);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center 0;
+        }
+
+        p.overlay-title {
             font-size: 24px;
+            font-weight: 900;
+            color: black;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .overlay-body {
+            max-width: 512px;
             text-align: center;
-            margin-top: 50px;
+            font-family: "Inter", sans-serif;
+        }
+
+        .overlay[hidden] {
+            display: none;
+        }
+
+        .text-bg {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 24px;
+        }
+
+        video#video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        video#video::-webkit-media-controls-enclosure {
+            display: none !important;
         }
     </style>
-    <script>
+</head>
+
+<body>
+    <div id="overlay" class="overlay">
+        <div class="text-bg">
+            <div class="overlay-body">
+                <p class="overlay-title" id="countdown-container">
+                    <div id="countdown"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
         // 設定目標日期和時間（UTC+8）
         const targetDate = new Date("2023-11-30T19:50:00+08:00").getTime();
 
@@ -33,10 +101,6 @@
         // 設定定時器，每秒更新一次
         setInterval(updateCountdown, 1000);
     </script>
-</head>
-<body>
-    <div id="countdown-container">
-        <div id="countdown"></div>
-    </div>
 </body>
+
 </html>
